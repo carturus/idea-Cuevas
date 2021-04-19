@@ -6,7 +6,8 @@ function App() {
   return (
     <div>
     <NavBar/> 
-    <ItemListContainer/>
+    <ItemListContainer 
+    gretting='Welcome to MyDoctor, The site that takes care of yourself'/>
 </div>
   );
 }

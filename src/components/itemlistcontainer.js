@@ -1,7 +1,7 @@
-export const ItemListContainer =()=>{
+export const ItemListContainer =(props)=>{
     return(
         <div>
-            Welcome to My Doctor, the site that takes care of your sefl.
+            {props.gretting}
         </div>
     )
 }
