@@ -1,17 +1,14 @@
 import React, { useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const ItemCount =({stock,initial,onAdd})=>{
+export const ItemCount =({stock,initial})=>{
     
-    //Estaso count, para guradar numero de items
-    const [count, setCount] = useState(parseInt(initial));
+    //Estado count, para guradar numero de items
+    const [count, setCount] = useState(initial);
     
     //Agregar productor al carrito
-    function onAdd(){
-  
-        alert(`Se agregaron ${count} productos`)
-      }
-      
+    const onAdd=()=> alert(`Se agregaron ${count} productos`)
+
     //Incrementa items  
     function add(){
         if(count<stock){
@@ -27,14 +24,13 @@ export const ItemCount =({stock,initial,onAdd})=>{
 
     return(
 
-    <div className="card text-white bg-primary" style={{maxWidth:'10rem'}}>
+    <div className="card text-white bg-primary" style={{maxWidth:'8rem', maxHeight:'15rem'}}>
     <div className="card-body">
-    <h5 className="card-title">Items</h5>
-    <p className="card-text text-black">{count}</p>
-    <a onClick={add} className="btn btn-light">+</a>
-    <a onClick={remove} className="btn btn-light">-</a>
+    <p>{count}</p>
+    <a href ="#" onClick={remove} className="btn btn-light">-</a>
+    <a href ="#" onClick={add} className="btn btn-light">+</a>
     </div>
-    <a onClick={onAdd} className="btn btn-light">Add</a>
+    <a href ="#" onClick={onAdd} className="btn btn-light">Add</a>
   
 </div>
         
