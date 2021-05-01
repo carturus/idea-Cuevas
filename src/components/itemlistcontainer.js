@@ -1,4 +1,5 @@
 
+import { ItemDetailContainer } from './itemdetailcontainer'
 import {ItemList} from './itemlist'
 
 
@@ -8,15 +9,17 @@ export const ItemListContainer =(props)=>{
     return(
         <div
         style={{
-            textAlign:"center",
-            color:'white',
-            display:'flex',
-            justifyContent:'space-around',
-          }}
+          display:'flex',
+          flexDirection:'column'
+        }}
         >
           {/* {props.gretting}   */}
-          
-          <ItemList/>
-         </div>
+          <div  style={{
+          display:'flex',
+          justifyContent:'space-around',
+        }}>   <ItemList/></div>
+      
+          <ItemDetailContainer/>
+          </div>
     )
 }

@@ -34,7 +34,6 @@ export const ItemList = ()=>{
 
     ]
 
-
     const [ itemProducts, setItems] = useState([])
 
     //Funcion getItems, simula promise para consulta de un servidor
@@ -53,11 +52,10 @@ export const ItemList = ()=>{
             setItems(result);
         });
     }, [])
-
     
     return itemProducts.map((product) => (
         <Item 
-        id={product.id}
+        key={product.id}
         title={product.title}
         price={product.price}
         pictureUrl={product.pictureUrl}

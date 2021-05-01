@@ -12,12 +12,11 @@ export const Item = (props)=>{
     }}
     >
 
-    <h4 style={{color:"#03417a"}}>{props.id}</h4>
+    <h4 style={{color:"#03417a"}}>{props.key}</h4>
     <h4 style={{color:"#03417a"}}>{props.title}</h4>
     <h4 style={{color:"#03417a"}}>{props.price}</h4>
     <img src={props.pictureUrl}></img>
  
- ""
     <ItemCount stock={5}
    initial={1}/>
      </div>
