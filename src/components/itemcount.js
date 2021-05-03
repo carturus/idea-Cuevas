@@ -24,7 +24,7 @@ export const ItemCount =({stock,initial})=>{
 
     return(
 
-    <div className="card text-white bg-primary" style={{maxWidth:'8rem', maxHeight:'15rem'}}>
+    <div className="card text-white bg-primary" style={{maxWidth:'8rem', maxHeight:'10rem'}}>
     <div className="card-body">
     <p>{count}</p>
     <a href ="#" onClick={remove} className="btn btn-light">-</a>

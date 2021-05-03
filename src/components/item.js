@@ -1,5 +1,6 @@
 
 import {ItemCount} from './itemcount'
+import {Link} from 'react-router-dom'
 
 export const Item = (props)=>{
   
@@ -9,16 +10,17 @@ export const Item = (props)=>{
         display:"flex",
         flexDirection:"column",
         alignItems:"center",
+        color:"#03417a",
+        borderColor:"#03417a",
+        borderStyle:"solid",
     }}
     >
 
-    <h4 style={{color:"#03417a"}}>{props.key}</h4>
-    <h4 style={{color:"#03417a"}}>{props.title}</h4>
-    <h4 style={{color:"#03417a"}}>{props.price}</h4>
+    <Link to = {`/itemdetail/${props.id}`}><h3 >{props.title}</h3></Link>
+    <p>{props.category}</p>
     <img src={props.pictureUrl}></img>
- 
-    <ItemCount stock={5}
-   initial={1}/>
+    <h3>{`${props.price} mxn`}</h3>
+
      </div>
   
     )

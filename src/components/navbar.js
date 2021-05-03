@@ -1,18 +1,19 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {Link} from 'react-router-dom'
 import {CarWidget} from './carwidget'
+import {Brand} from './brand'
 
 
-export const NavBar = () => {
+export const NavBar = (props) => {
 
 return(
     <nav className=" navbar navbar-light bg-light">
-          <a className="navbar-brand" href="#MyDoctor"><CarWidget/> MyDoctor</a>
-          <a className="nav-link" href="#Uniformes">Uniformes</a>
-          <a className="nav-link" href="#Equipos">Equipos</a>
-          <a className="nav-link" href="#Materiales">Materiales</a>        
-          <a className="nav-link" href="#Mi_cuenta">Mi Cuenta</a>
+          <Link to = '/'><Brand/> MyDoctor </Link>
+          {props.categories.map((category,index)=>
+            <Link to = {`/category/${category.description}`}>{category.description}</Link>
+          )}
+          <Link to = '/'><CarWidget/> </Link>
   </nav>
   
 )
