@@ -1,5 +1,4 @@
 
-import {ItemCount} from './itemcount'
 import {Link} from 'react-router-dom'
 
 export const Item = (props)=>{
@@ -18,7 +17,7 @@ export const Item = (props)=>{
 
     <Link to = {`/itemdetail/${props.id}`}><h3 >{props.title}</h3></Link>
     <p>{props.category}</p>
-    <img src={props.pictureUrl}></img>
+    <img alt='producto'src={props.pictureUrl}></img>
     <h3>{`${props.price} mxn`}</h3>
 
      </div>

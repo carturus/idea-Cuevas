@@ -3,7 +3,7 @@ import {NavBar}from './components/navbar'
 import {ItemListContainer} from './components/itemlistcontainer'
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
 import { ItemDetailContainer } from './components/itemdetailcontainer';
-
+import {Cart} from './components/cart'
 function App() {
 
   const categories=[
@@ -37,6 +37,10 @@ function App() {
   
   <Route path='/itemdetail/:itemId'>
     <ItemDetailContainer/>
+  </Route>
+
+  <Route path='/cart'>
+    <Cart/>
   </Route>
   
 

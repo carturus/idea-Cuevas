@@ -5,15 +5,14 @@ import  items from './datos/items.json'
 
 export   const ItemDetailContainer=()=>{
   const {itemId}=useParams()
-
   console.log(itemId)
-console.log(JSON.stringify(items))
 const [ itemDetail, setItem] = useState([])
 
 //Funcion getItem, simula promise para consulta de un servidor
 const getItem = (itemData) => {
     return new Promise((res, rej) => {
       setTimeout(() => {
+        console.log('consegui datos')
         return res(itemData)
       }, 2000)
     })

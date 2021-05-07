@@ -15,14 +15,14 @@ const getList= (data) => {
     return new Promise((res, rej) => {
       setTimeout(() => {
         console.log(categoryId)
-        console.log(items.filter(item => item.category==categoryId))
+        console.log(items.filter(item => item.category===categoryId))
         return res(data)
       }, 2000)
     })
 }
 
 useEffect(() => {
-  getList(categoryId?(items.filter(item => item.category==categoryId)):items ).then(result => {
+  getList(categoryId?(items.filter(item => item.category===categoryId)):items ).then(result => {
       console.log(result)
       setList(result);
   });

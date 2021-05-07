@@ -1,8 +1,5 @@
 import {Item} from './item'
 
-import React, { useState, useEffect } from 'react';
-
-
 export const ItemList = (props)=>{
 
            
