@@ -4,6 +4,8 @@ import {ItemListContainer} from './components/itemlistcontainer'
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
 import { ItemDetailContainer } from './components/itemdetailcontainer';
 import {Cart} from './components/cart'
+import {CartProvider} from './context/cartContex'
+
 function App() {
 
   const categories=[
@@ -18,11 +20,12 @@ function App() {
       {id:3,
         description:"Equipos",
     
-        },  
+       },  
   ]
   
   return (
     <div>
+      <CartProvider>
       <BrowserRouter>
     <NavBar categories={categories}/> 
     <Switch>
@@ -46,6 +49,7 @@ function App() {
 
   </Switch>
    </BrowserRouter>
+   </CartProvider>
     </div>
   );
 }

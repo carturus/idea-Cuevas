@@ -31,7 +31,7 @@ return(
 
   {itemDetail ? (
     <ItemDetail
-    key={itemDetail.id}
+    
     id={itemDetail.id}
     title={itemDetail.title}
     price={itemDetail.price}
