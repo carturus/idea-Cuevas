@@ -1,28 +1,32 @@
 
 import {ItemCount} from './itemcount'
-import React, { useState,useContext} from 'react';
+import React, { useState,useContext,useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {CartContext} from '../context/cartContex'
-export  const ItemDetail=({id,title,pictureUrl,price,description})=>{
-    const [initial,setInitial]=useState(2);
-    const [stock,setStock]=useState(5);
+export  const ItemDetail=({id,title,pictureUrl,price,description,stock})=>{
+    
+    const [initial,setInitial]=useState(1);
+    const [itemStock,setItemStock]=useState(stock);
     const [showItemCount,setShowItemCount]=useState(true);
     const [showButtonBuy,setShowButtonBuy]=useState(false);
     const [cantidad,setCantidad] = useState(initial);
     const {addToCart}=useContext(CartContext)
 
+   // Condicona stock
+useEffect(() => {
+ setItemStock(stock)
+}, [stock])
+
+ //Renderizado condicional
     const addCart=(nCount)=> {
         setShowItemCount(false)
         setShowButtonBuy(true)
-        setCantidad(nCount) 
-    
+        setCantidad(nCount)     
 }
 
 
     return(
-      
-        
-
+   
         <div
         style={{
             display:"flex",
@@ -39,13 +43,13 @@ export  const ItemDetail=({id,title,pictureUrl,price,description})=>{
         <div> { showButtonBuy ? <button onClick={()=>addToCart({
     id: id,
     title: title,
+    price: price,
     quantity:cantidad
   
 },cantidad)}>
     <Link to='/cart'>Comprar, Tiene {cantidad} productos</Link></button>: null }</div>
        
-
-        <div> { showItemCount ? <ItemCount stock={stock} initial={initial} onAdd={addCart}/>: null }</div>
+        <div> { showItemCount ? <ItemCount stock={itemStock} initial={initial} onAdd={addCart}/>: null }</div>
         </div>
 
     )

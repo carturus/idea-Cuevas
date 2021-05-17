@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext} from 'react';
 import {ItemDetail} from './itemdetail'
 import { useParams } from 'react-router';
 import  items from './datos/items.json'
+import {CartContext} from '../context/cartContex'
+
 
 export   const ItemDetailContainer=()=>{
-  const {itemId}=useParams()
-  console.log(itemId)
-const [ itemDetail, setItem] = useState([])
+    const {cart,cartQuantity}=useContext(CartContext)
+    const {itemId}=useParams()
+    const [ itemDetail, setItem] = useState([])
+    const [stock,setStock]=useState(10)
+
 
 //Funcion getItem, simula promise para consulta de un servidor
 const getItem = (itemData) => {
@@ -18,18 +22,25 @@ const getItem = (itemData) => {
     })
 }
 
+//Restar Stock
+const restarStock=(resultado)=>{
+  const cartItem=cart.find(cartItem => cartItem.id==resultado.id)
+  return resultado.stock-(cartItem===undefined?0:cartItem.quantity)
+}
+
 //useEffcect para dispara funcion getItem
 useEffect(() => {
     getItem(items.find(item => item.id==itemId)).then(result => {
-        console.log(result)
-        setItem(result);
+    setItem(result);  
+    cartQuantity>0?setStock(restarStock(result)):setStock(result.stock)
+
     });
 }, [])
 
 return(
   <div>
 
-  {itemDetail ? (
+  {itemDetail? (
     <ItemDetail
     
     id={itemDetail.id}
@@ -37,6 +48,7 @@ return(
     price={itemDetail.price}
     pictureUrl={itemDetail.pictureUrl}
     description={itemDetail.description}
+    stock={stock}
     
     >
        

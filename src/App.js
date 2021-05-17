@@ -5,6 +5,7 @@ import {Switch, Route, BrowserRouter} from 'react-router-dom'
 import { ItemDetailContainer } from './components/itemdetailcontainer';
 import {Cart} from './components/cart'
 import {CartProvider} from './context/cartContex'
+import React from 'react';
 
 function App() {
 

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const ItemCount =({initial, stock ,onAdd})=>{
     const [count, setCount] = useState(initial);
-    const add=()=>{if(count<stock) setCount(count+1)}
+    const add=()=>{if((count<stock) && (stock>1)) setCount(count+1)}
     const remove=()=>{if(count<=stock && count>initial) setCount(count-1)}
     const handleClick =()=>onAdd(count)  
 
@@ -15,8 +15,10 @@ export const ItemCount =({initial, stock ,onAdd})=>{
     <p>{count}</p>
     <button onClick={remove} className="btn btn-light">-</button>
     <button onClick={add} className="btn btn-light">+</button>
-    </div>
-    <button  onClick={handleClick} className="btn btn-light">Add</button>
+    </div>{
+       stock>1?<button  onClick={handleClick} className="btn btn-light">Add</button>:<button className="btn btn-light">Add</button>
+    }
+  
 
 </div>
         
