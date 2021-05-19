@@ -3,7 +3,7 @@ import {ItemCount} from './itemcount'
 import React, { useState,useContext,useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {CartContext} from '../context/cartContex'
-export  const ItemDetail=({id,title,pictureUrl,price,description,stock})=>{
+export  const ItemDetail=({id,title,imageId,price,description,stock})=>{
     
     const [initial,setInitial]=useState(1);
     const [itemStock,setItemStock]=useState(stock);
@@ -38,7 +38,7 @@ useEffect(() => {
         
         <h4>{title}</h4>
         <h4 >{price}</h4>
-        <img alt='producto'src={pictureUrl}/>    
+        <img alt='producto'src={imageId} width="200" height="200"/>    
         <p>{description}</p>   
         <div> { showButtonBuy ? <button onClick={()=>addToCart({
     id: id,

@@ -11,8 +11,8 @@ export const Cart=()=>{
         { cartQuantity>0? 
         <div>{
 
-        cart.map((item)=>(
-          <div>
+        cart.map((item,index)=>(
+          <div key={index}>
             <p>Articulo: {item.title} cantidad: {item.quantity} price:{item.price*item.quantity}</p>
             <button onClick={()=>removeFromCart(item.id)}>Eliminar</button>
           </div>
