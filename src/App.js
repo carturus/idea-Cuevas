@@ -34,6 +34,7 @@ function App() {
     <ItemListContainer 
     gretting='Welcome to MyDoctor, The site that takes care of yourself'/>
   </Route>
+ 
   <Route path='/category/:categoryId'>
     <ItemListContainer 
     gretting='Welcome to MyDoctor, The site that takes care of yourself'/>
@@ -45,8 +46,7 @@ function App() {
 
   <Route path='/cart'>
     <Cart/>
-  </Route>
-  
+  </Route> 
 
   </Switch>
    </BrowserRouter>

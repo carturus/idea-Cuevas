@@ -18,7 +18,7 @@ export const Item = (props)=>{
 
     <Link to = {`/itemdetail/${props.id}`}><h3 >{props.title}</h3></Link>
     <p>{props.category}</p>
-    <img alt='producto'src={props.pictureUrl}></img>
+    <img alt='producto'src={props.pictureUrl} width="200" height="200"></img>
     <h3>{`${props.price} mxn`}</h3>
 
      </div>

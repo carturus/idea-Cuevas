@@ -1,54 +1,55 @@
 import React, { useState, useEffect,useContext} from 'react';
 import {ItemDetail} from './itemdetail'
 import { useParams } from 'react-router';
-import  items from './datos/items.json'
 import {CartContext} from '../context/cartContex'
+import { getFirestore } from '../firebase';
 
 
 export   const ItemDetailContainer=()=>{
     const {cart,cartQuantity}=useContext(CartContext)
     const {itemId}=useParams()
-    const [ itemDetail, setItem] = useState([])
-    const [stock,setStock]=useState(10)
+    const [item,setItem]=useState({})
+    const [duplicado,setDuplicado]=useState()
+   
 
+console.log('item found' , item.price)
 
-//Funcion getItem, simula promise para consulta de un servidor
-const getItem = (itemData) => {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        console.log('consegui datos')
-        return res(itemData)
-      }, 2000)
-    })
-}
+useEffect(()=>{
+  const db=getFirestore();
+  const itemCollection=db.collection('items')
+  const item=itemCollection.doc(itemId)
+  item.get().then((doc)=>{
+    if(!doc.exists){
+      console.log('Item does no exist')
+      return
+    }
+    setItem({id: doc.id, ...doc.data()})
+    
+    setDuplicado(item.id)
 
-//Restar Stock
-const restarStock=(resultado)=>{
-  const cartItem=cart.find(cartItem => cartItem.id==resultado.id)
-  return resultado.stock-(cartItem===undefined?0:cartItem.quantity)
-}
+  }).catch((error)=>{
+    console.log('error searshing',error)
+  })
+  
 
-//useEffcect para dispara funcion getItem
-useEffect(() => {
-    getItem(items.find(item => item.id==itemId)).then(result => {
-    setItem(result);  
-    cartQuantity>0?setStock(restarStock(result)):setStock(result.stock)
+},[])
 
-    });
-}, [])
+ const cartItem=cart.find(cartItem => cartItem.id==duplicado)
+ let newStock=item.stock-(cartItem===undefined?0:cartItem.quantity)
+ console.log("soy el new item stock",newStock ,"soy el original",item.stock)
 
 return(
   <div>
 
-  {itemDetail? (
+  {item? (
     <ItemDetail
     
-    id={itemDetail.id}
-    title={itemDetail.title}
-    price={itemDetail.price}
-    pictureUrl={itemDetail.pictureUrl}
-    description={itemDetail.description}
-    stock={stock}
+    id={item.id}
+    title={item.title}
+    price={item.price}
+    imageId={item.imageId}
+    description={item.description}
+    stock={newStock}
     
     >
        
