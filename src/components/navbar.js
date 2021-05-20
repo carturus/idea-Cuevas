@@ -17,7 +17,7 @@ return(
           )
           
           }
-          <Link to = '/cart'><CarWidget/> </Link>
+          {cartQuantity? <Link to = '/cart'><CarWidget/> </Link>:null}
   </nav>
   
 )
