@@ -23,6 +23,15 @@ useEffect(() => {
         setShowButtonBuy(true)
         setCantidad(nCount)     
 }
+useEffect(()=>{
+if(itemStock==0){
+    setCantidad(0)
+    setShowItemCount(false)
+    setShowButtonBuy(true)
+}
+
+
+},[itemStock])
 
 
     return(
@@ -49,7 +58,7 @@ useEffect(() => {
 },cantidad)}>
     <Link to='/cart'>Comprar, Tiene {cantidad} productos</Link></button>: null }</div>
        
-        <div> { showItemCount ? <ItemCount stock={itemStock} initial={initial} onAdd={addCart}/>: null }</div>
+        <div> { showItemCount>0 ? <ItemCount stock={itemStock} initial={initial} onAdd={addCart}/>: null }</div>
         </div>
 
     )
