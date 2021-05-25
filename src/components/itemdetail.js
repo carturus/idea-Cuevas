@@ -53,6 +53,7 @@ if(itemStock==0){
     id: id,
     title: title,
     price: price,
+    stock:stock,
     quantity:cantidad
   
 },cantidad)}>

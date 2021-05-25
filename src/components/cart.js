@@ -20,6 +20,7 @@ export const Cart=()=>{
         }
      <p>Tienes {cartQuantity} productos en tu carrito con un total de {totalPrice}</p>
       <button onClick={clearCart}>Vaciar Carrito</button>
+      <button><Link to='/CheckOut'>Finalizar Compra</Link></button>
 </div>
 
         :<div> <p>Carriro vacio</p> <button><Link to='/'>Busca nuevamente</Link></button></div>}

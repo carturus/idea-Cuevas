@@ -6,7 +6,7 @@ import { getFirestore } from '../firebase';
 
 
 export   const ItemDetailContainer=()=>{
-    const {cart,cartQuantity}=useContext(CartContext)
+    const {cart}=useContext(CartContext)
     const {itemId}=useParams()
     const [item,setItem]=useState({})
     const [duplicado,setDuplicado]=useState()

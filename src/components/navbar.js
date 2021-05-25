@@ -1,10 +1,11 @@
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 import {CarWidget} from './carwidget'
 import {Brand} from './brand'
 import React, { useContext} from 'react';
 import {CartContext} from '../context/cartContex'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export const NavBar = (props) => {
   const {cartQuantity}=useContext(CartContext)
