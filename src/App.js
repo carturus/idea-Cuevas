@@ -1,11 +1,14 @@
 
 import {NavBar}from './components/navbar'
+import {CheckOut} from './components/CheckOut'
 import {ItemListContainer} from './components/itemlistcontainer'
+import {Order} from './components/Order'
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
 import { ItemDetailContainer } from './components/itemdetailcontainer';
 import {Cart} from './components/cart'
 import {CartProvider} from './context/cartContex'
 import React from 'react';
+
 
 function App() {
 
@@ -47,6 +50,15 @@ function App() {
   <Route path='/cart'>
     <Cart/>
   </Route> 
+
+  <Route path='/order'>
+    <Order/>
+  </Route> 
+
+
+  <Route path='/checkout'>
+    <CheckOut/>
+  </Route>
 
   </Switch>
    </BrowserRouter>
