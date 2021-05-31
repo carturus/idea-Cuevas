@@ -18,11 +18,7 @@ export const CartProvider=({children})=>{
             setCartQuantity(cartQuantity+quantity)          
         } else{
             setCart([...cart,item])
-<<<<<<< HEAD
           
-=======
-            console.log('soy el cart en  cart contex',cart)
->>>>>>> 1231b8632e153a77eb2c9efd71558b8044890838
         }   
     }
     const removeFromCart=(itemId)=>{

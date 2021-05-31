@@ -11,6 +11,7 @@ export   const ItemDetailContainer=()=>{
     const [item,setItem]=useState({})
     const [duplicado,setDuplicado]=useState()
 
+
 useEffect(()=>{
   const db=getFirestore();
   const itemCollection=db.collection('items')

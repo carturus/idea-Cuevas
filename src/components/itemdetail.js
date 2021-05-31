@@ -1,6 +1,6 @@
 
 import {ItemCount} from './ItemCount'
-import {ButtonCart} from './ButtonCart'
+import {ButtonCart} from './buttonCart'
 import React, { useState,useEffect} from 'react';
 
 export  const ItemDetail=({id,title,imageId,price,description,stock})=>{
