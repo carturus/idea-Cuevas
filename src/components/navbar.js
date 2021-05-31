@@ -3,13 +3,8 @@ import {Link} from 'react-router-dom'
 import {CartWidget} from './CartWidget'
 import {Brand} from './Brand'
 import React, { useContext} from 'react';
-<<<<<<< HEAD
 import {CartContext} from '../context/CartContex'
 
-=======
-import {CartContext} from '../context/cartContex'
-import 'bootstrap/dist/css/bootstrap.min.css';
->>>>>>> 1231b86 (Desafio 11-item collection 2)
 
 
 export const NavBar = (props) => {

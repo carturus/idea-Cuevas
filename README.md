@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# MyDoctor-proyecto final Curo React JS Coderhouse
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MyDoctor es una tienda online que provee Equipos, Uniformes y materiales para los profesionales de la salud. El proyecto se desarrollo con React bajo las lineas de los desafios inviudales de cada clase.
 
-## Available Scripts
+### Styles
 
-In the project directory, you can run:
+Se decidio utilzar react [React boostrap](https://react-bootstrap.github.io/) para los estilos del proyecto, ya que el principal objetivo es enteder el funcionamiento de react.
 
-### `yarn start`
+### Diseño del Sitio:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<App>
+<Navbar>
+<Switch> 
+<Route ItemListContainer/:id >
+<Route ItemDetailContainer/:id >
+<Route Cart >
+<Route Chekout >
+</Swicth>
+</App>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Componentes
 
-### `yarn test`
+| ItemListContainer ->                                     | ItemList - >             | Item                                   |
+| -------------------------------------------------------- | ------------------------ | -------------------------------------- |
+| Obtiene los items por Firestore dependiendo del Idparams | Recibe la lista de items | Renderiza item de la lista en una card |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| ItemDeatilContainer ->             | ItemDetail ->     | ItemCount                                           |
+| ---------------------------------- | ----------------- | --------------------------------------------------- |
+| Obtiene un documento por Firestore | Renderiza el item | Ofrece controles para modificar cantidades del item |
 
-### `yarn build`
+| Cart->                     | CartDetail              |
+| -------------------------- | ----------------------- |
+| Recibe items de CartContex | Rederiza items del Cart |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| CheckOut ->                               | Form                 | Order                |
+| ----------------------------------------- | -------------------- | -------------------- |
+| Logica para alamcenar datos del comprador | Renderiza formulario | Renderiza Formulario |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Firestore
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Como backend se utilizara el servicio de Firestore de Firebase. Este servicio alamacena una coleccion de items con varios documentos que reprenstan un producto:
 
-### `yarn eject`
+- categoryId
+- description
+- imageId
+- stock
+- title
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Tambien almacena una coleccion de ordenes de comrpa:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- buyer{email,name,phone}
+- cart[{item}]
+- date
+- totalPrice
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Funcionalidad
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+La panatalla de bienvenidad, mostrara los productos top de la colleccion items Firestore. Esta collecion se puede clasificar en categorias por el campo categoryId (Uniformess,Materiales y Equipo). El usuario puede desplegar items de cierta ctegoria desde las opciones del del NavBar con la ruta /category/category:id. Tanto la pantalla de bienvenida y de categorias, utilizan el componente ItemListContainer que encapsula la logica para llamar los items de Firestore. Los cuales pasan al componente ItemList el cual utiliza le metodo map para llamar al Item y renderiza los items, los cuales tienen un link a ItemDetailContainer.En ItemDetailContainer se encapsula la logica para llamar cierto documento de firertore por su id y permitir la compra del producto bajo las reglas de negocio. El CartContex contiene la logica para agregar,modificar y remover productos al Cart. El Cart desplegara la el componente CartDetail, si es que hay productos, y contiene un button para finalizar compra que enlaza el componente CheckOrder.CheckOrder cuenta renderiza condicionamenlte 2 componenets, Form y Order, se debe cumplir con los inputs de Form adecuadamente para rendedizar el component Form el cual almacena la orden en firestore y finaliza la compra.
 
-## Learn More
+# Comentarios
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Agradezco al equipo de [CODERHOUSE](https://www.coderhouse.com), la oportunidad de aprender y desarrollar mis habilidades en el mundo de del desarrollo web. En especial al Prof. Francisco Rodriguez por su desempeño para transmitir el conocimiento.

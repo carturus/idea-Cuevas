@@ -36,7 +36,6 @@ if(itemStock===0){
 
     return(
    
-<<<<<<< HEAD
         <div className="card d-flex text-center" >
              <div className="card-header">{title}</div>
             
@@ -46,30 +45,6 @@ if(itemStock===0){
                  <p className="card-text">{description}</p>   
 
           {showButtonBuy?<ButtonCart id={id}  title={title} price={price} stock={stock} cantidad={cantidad} imageId={imageId}></ButtonCart>:null}
-=======
-        <div
-        style={{
-            display:"flex",
-            flexDirection:"column",
-            alignItems:"center",
-            color:"#03417a",
-        }}
-        >
-        
-        <h4>{title}</h4>
-        <h4 >{price}</h4>
-        <img alt='producto'src={imageId} width="200" height="200"/>    
-        <p>{description}</p>   
-        <div> { showButtonBuy ? <button onClick={()=>addToCart({
-    id: id,
-    title: title,
-    price: price,
-    stock:stock,
-    quantity:cantidad
-  
-},cantidad)}>
-    <Link to='/cart'>Comprar, Tiene {cantidad} productos</Link></button>: null }</div>
->>>>>>> 1231b86 (Desafio 11-item collection 2)
        
           { showItemCount>0 ? <ItemCount stock={itemStock} initial={initial} onAdd={addCart}/>: null } 
           </div>

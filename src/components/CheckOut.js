@@ -8,17 +8,12 @@ export const CheckOut=()=> {
     name: '',
     surname: '',
     phone: '',
-<<<<<<< HEAD
     email: '',
     remail: '',
-=======
-    email: ''
->>>>>>> 1231b86 (Desafio 11-item collection 2)
   });
   const [isDisabledButton, setIsDisabledButton] = useState(true);
   const [showOrder,setShowOrder]=useState(false);
   const [showForm,setShowForm]=useState(true);
-<<<<<<< HEAD
   const formFields=[
         {
           id:'name',
@@ -52,42 +47,11 @@ export const CheckOut=()=> {
     
       ]
  
-=======
-
-  const formFields=[
-    {
-      id:'name',
-      label:'Nombre',
-      value:buyer.name,
-      required:true
-    },
-    {
-      id:'surname',
-      label:'Apellido',
-      value:buyer.surname,
-      required:true
-    },
-    {
-      id:'phone',
-      label:'phone',
-      value:buyer.phone,
-      required:true
-    },
-        {
-      id:'email',
-      label:'Email',
-      value:buyer.email,
-      required:true
-    }
-
-  ]
->>>>>>> 1231b86 (Desafio 11-item collection 2)
 
 
   const handleForm = (id, value) => {
    
     const newBuyer= { ...buyer, [id]: value };
-<<<<<<< HEAD
 
     setBuyer(newBuyer);
   };
@@ -107,19 +71,6 @@ else{
   };
 
   useEffect(() => {
-=======
-    setBuyer(newBuyer);
-  };
-
-  const handleSubmit = () => {
-    
-    setShowOrder(true)
-    setShowForm(false)    
-  };
-
-  useEffect(() => {
-
->>>>>>> 1231b86 (Desafio 11-item collection 2)
     const requiredFields = formFields.filter(({ required }) => required);
     const isSomeRequiredFieldEmpty = requiredFields.some(({ value }) => !value);
     setIsDisabledButton(isSomeRequiredFieldEmpty);
@@ -129,11 +80,7 @@ else{
 
   return (
     <div>{
-<<<<<<< HEAD
      showForm?<Form buyer={buyer} formFields={formFields} handleForm={handleForm} isDisabledButton={isDisabledButton} handleSubmit={handleSubmit}/>:null
-=======
-     showForm?<Form buyer={buyer} handleForm={handleForm} isDisabledButton={isDisabledButton} handleSubmit={handleSubmit}/>:null
->>>>>>> 1231b86 (Desafio 11-item collection 2)
     }
       {
          showOrder?<Order buyer={buyer}/>:null

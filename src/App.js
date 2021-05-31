@@ -1,14 +1,7 @@
 
-<<<<<<< HEAD
 import {NavBar}from './components/NavBar'
 import {CheckOut} from './components/CheckOut'
 import {ItemListContainer} from './components/ItemListContainer'
-=======
-import {NavBar}from './components/navbar'
-import {CheckOut} from './components/CheckOut'
-import {ItemListContainer} from './components/itemlistcontainer'
-import {Order} from './components/Order'
->>>>>>> 1231b86 (Desafio 11-item collection 2)
 import {Switch, Route, BrowserRouter} from 'react-router-dom'
 import { ItemDetailContainer } from './components/ItemDetailContainer';
 import {Cart} from './components/Cart'
@@ -52,26 +45,10 @@ function App() {
                        <CheckOut/>
                    </Route>
 
-<<<<<<< HEAD
                 </Switch>
             </BrowserRouter>
           </CartProvider>
      </div>
-=======
-  <Route path='/order'>
-    <Order/>
-  </Route> 
-
-
-  <Route path='/checkout'>
-    <CheckOut/>
-  </Route>
-
-  </Switch>
-   </BrowserRouter>
-   </CartProvider>
-    </div>
->>>>>>> 1231b86 (Desafio 11-item collection 2)
   );
 }
 
