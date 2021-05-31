@@ -18,7 +18,7 @@ return(
           )
           
           }
-          {cartQuantity? <Link to = '/cart'><CartWidget/> </Link>:null}
+          <Link to = '/cart'><CartWidget/> </Link>
   </nav>
   
 )
