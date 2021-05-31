@@ -18,7 +18,11 @@ export const CartProvider=({children})=>{
             setCartQuantity(cartQuantity+quantity)          
         } else{
             setCart([...cart,item])
+<<<<<<< HEAD
           
+=======
+            console.log('soy el cart en  cart contex',cart)
+>>>>>>> 1231b86 (Desafio 11-item collection 2)
         }   
     }
     const removeFromCart=(itemId)=>{
