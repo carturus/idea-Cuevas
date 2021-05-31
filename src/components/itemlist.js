@@ -1,4 +1,4 @@
-import {Item} from './item'
+import {Item} from './Item'
 import React from 'react';
 
 export const ItemList = ({items})=>{

@@ -5,24 +5,19 @@ import React from 'react';
 export const Item = (props)=>{
   
     return(
-    <div
-    style={{
-        display:"flex",
-        flexDirection:"column",
-        alignItems:"center",
-        color:"#03417a",
-        borderColor:"#03417a",
-        borderStyle:"solid",
-    }}
-    >
-
-    <Link to = {`/itemdetail/${props.id}`}><h3 >{props.title}</h3></Link>
-    <p>{props.category}</p>
-    <img alt='producto'src={props.pictureUrl} width="200" height="200"></img>
-    <h3>{`${props.price} mxn`}</h3>
-
-     </div>
-  
+        
+        <div className="card text-center" style={{ width: "12rem" }}>
+            <Link to = {`/itemdetail/${props.id}`}>
+                <img className="card-img-top" src={props.pictureUrl} height="200" alt="Card item"/>
+                <h4 className="card-title">{props.title}</h4>
+            </Link>
+            <div className="card-body d-flex flex-column align-items-center">
+                
+                 <p className="card-text">{props.category}</p>
+                 <p className="card-text">{`${props.price} mxn`}</p>
+            </div>
+        </div>
+   
     )
  }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect,useContext} from 'react';
-import {ItemDetail} from './itemdetail'
+import {ItemDetail} from './ItemDetail'
 import { useParams } from 'react-router';
-import {CartContext} from '../context/cartContex'
+import {CartContext} from '../context/CartContex'
 import { getFirestore } from '../firebase';
 
 
@@ -10,9 +10,7 @@ export   const ItemDetailContainer=()=>{
     const {itemId}=useParams()
     const [item,setItem]=useState({})
     const [duplicado,setDuplicado]=useState()
-   
 
-console.log('item found' , item.price)
 
 useEffect(()=>{
   const db=getFirestore();
@@ -34,7 +32,7 @@ useEffect(()=>{
 
 },[])
 
- const cartItem=cart.find(cartItem => cartItem.id==duplicado)
+ const cartItem=cart.find(cartItem => cartItem.id===duplicado)
  let newStock=item.stock-(cartItem===undefined?0:cartItem.quantity)
  console.log("soy el new item stock",newStock ,"soy el original",item.stock)
 

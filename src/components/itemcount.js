@@ -1,11 +1,10 @@
 import React, { useState} from 'react';
-import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const ItemCount =({initial, stock ,onAdd})=>{
     const [count, setCount] = useState(initial);
     const add=()=>{
-        if(count==stock){
+        if(count===stock){
             handleClick(count);
             
         }else{
@@ -21,18 +20,18 @@ export const ItemCount =({initial, stock ,onAdd})=>{
 
     return(
 
-    <div className="card text-white bg-primary" style={{maxWidth:'8rem', maxHeight:'10rem'}}>
-    <div className="card-body"> 
-
-        <p>{count}</p>
-         <button onClick={remove} className="btn btn-light">-</button>
-    <button onClick={add} className="btn btn-light">+</button> 
-    <button  onClick={handleClick} className="btn btn-light">Add</button>
+   <div >
+                  <div className="d-flex justify-content-between"> 
+                    <button onClick={remove} className="btn btn-primary">-</button>
+                    <span>{count}</span>
+                    <button onClick={add} className="btn btn-primary">+</button> 
+                    </div>    
+                    <button  onClick={handleClick} className="btn btn-light">Agregar al carrito</button>   
     </div>
 
-
-</div>
         
+
+
      
       )   
 

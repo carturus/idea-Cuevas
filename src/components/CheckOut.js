@@ -8,55 +8,69 @@ export const CheckOut=()=> {
     name: '',
     surname: '',
     phone: '',
-    email: ''
+    email: '',
+    remail: '',
   });
   const [isDisabledButton, setIsDisabledButton] = useState(true);
   const [showOrder,setShowOrder]=useState(false);
   const [showForm,setShowForm]=useState(true);
-
   const formFields=[
-    {
-      id:'name',
-      label:'Nombre',
-      value:buyer.name,
-      required:true
-    },
-    {
-      id:'surname',
-      label:'Apellido',
-      value:buyer.surname,
-      required:true
-    },
-    {
-      id:'phone',
-      label:'phone',
-      value:buyer.phone,
-      required:true
-    },
         {
-      id:'email',
-      label:'Email',
-      value:buyer.email,
-      required:true
-    }
+          id:'name',
+          label:'Nombre',
+          value:buyer.name,
+          required:true,
+          type:'text'
+        },
 
-  ]
+        {
+          id:'phone',
+          label:'phone',
+          value:buyer.phone,
+          required:true,
+          type:'number'
+        },
+            {
+          id:'email',
+          label:'Email',
+          value:buyer.email,
+          required:true,
+          type:'email'
+        },
+        {
+          id:'remail',
+          label:'Repite Email',
+          value:buyer.remail,
+          required:true,
+          type:'email'
+        }
+    
+      ]
+ 
 
 
   const handleForm = (id, value) => {
    
     const newBuyer= { ...buyer, [id]: value };
+
     setBuyer(newBuyer);
   };
 
-  const handleSubmit = () => {
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(buyer.email.includes('@'))
+    if(buyer.email===buyer.remail){
     setShowOrder(true)
     setShowForm(false)    
+}else{
+  alert('Los correos no coinciden')
+}
+else{
+  alert('Correo invalido')
+}
   };
 
   useEffect(() => {
-
     const requiredFields = formFields.filter(({ required }) => required);
     const isSomeRequiredFieldEmpty = requiredFields.some(({ value }) => !value);
     setIsDisabledButton(isSomeRequiredFieldEmpty);
@@ -66,7 +80,7 @@ export const CheckOut=()=> {
 
   return (
     <div>{
-     showForm?<Form buyer={buyer} handleForm={handleForm} isDisabledButton={isDisabledButton} handleSubmit={handleSubmit}/>:null
+     showForm?<Form buyer={buyer} formFields={formFields} handleForm={handleForm} isDisabledButton={isDisabledButton} handleSubmit={handleSubmit}/>:null
     }
       {
          showOrder?<Order buyer={buyer}/>:null
