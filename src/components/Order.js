@@ -72,7 +72,6 @@ export const Order =({buyer})=>{
     
               </tbody>
             </table>
-
              <h4><strong>Total:</strong> {totalPrice}</h4>
            
      
