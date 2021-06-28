@@ -17,24 +17,19 @@ useEffect(()=>{
   const itemCollection=db.collection('items')
   const item=itemCollection.doc(itemId)
   item.get().then((doc)=>{
-    if(!doc.exists){
-      console.log('Item does no exist')
-      return
+    if(doc.exists){
+      setItem({id: doc.id, ...doc.data()})
+      setDuplicado(item.id)
     }
-    setItem({id: doc.id, ...doc.data()})
-    
-    setDuplicado(item.id)
-
   }).catch((error)=>{
     console.log('error searshing',error)
   })
   
 
-},[])
+},[itemId])
 
  const cartItem=cart.find(cartItem => cartItem.id===duplicado)
  let newStock=item.stock-(cartItem===undefined?0:cartItem.quantity)
- console.log("soy el new item stock",newStock ,"soy el original",item.stock)
 
 return(
   <div>

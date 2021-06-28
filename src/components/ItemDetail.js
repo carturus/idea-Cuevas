@@ -4,7 +4,7 @@ import {ButtonCart} from './buttonCart'
 import React, { useState,useEffect} from 'react';
 
 export  const ItemDetail=({id,title,imageId,price,description,stock})=>{
-    
+    // Nunca estas cambiando este valor, porque es un estado?
     const [initial,setInitial]=useState(1);
     const [itemStock,setItemStock]=useState(stock);
     const [showItemCount,setShowItemCount]=useState(true);

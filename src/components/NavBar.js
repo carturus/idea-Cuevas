@@ -2,13 +2,11 @@
 import {Link} from 'react-router-dom'
 import {CartWidget} from './CartWidget'
 import {Brand} from './Brand'
-import React, { useContext} from 'react';
-import {CartContext} from '../context/CartContex'
+import React from 'react';
 
 
 
 export const NavBar = (props) => {
-  const {cartQuantity}=useContext(CartContext)
 return(
     <nav className="navbar navbar-light">
           <Link to = '/'><Brand/> MyDoctor </Link>

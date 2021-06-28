@@ -20,7 +20,6 @@ useEffect(() => {
     else{
         itemCollection=itemCollection.where('top','==',true)  
     }
-    console.log(categoryId)
     itemCollection.get().then((querySnapshot)=>{
             if(querySnapshot.size===0){
                 console.log('No results');  

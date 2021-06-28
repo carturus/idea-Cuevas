@@ -33,7 +33,6 @@ export const Order =({buyer})=>{
      })
     }
 
-    console.log(order)
     return(
         <div className="container">
        

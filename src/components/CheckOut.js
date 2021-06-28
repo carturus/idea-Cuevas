@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {Order} from './Order'
 import {Form} from './Form'
 
@@ -14,41 +14,40 @@ export const CheckOut=()=> {
   const [isDisabledButton, setIsDisabledButton] = useState(true);
   const [showOrder,setShowOrder]=useState(false);
   const [showForm,setShowForm]=useState(true);
-  const formFields=[
-        {
-          id:'name',
-          label:'Nombre',
-          value:buyer.name,
-          required:true,
-          type:'text'
-        },
 
+  const formFields = useMemo(() => ([
+    {
+      id:'name',
+      label:'Nombre',
+      value:buyer.name,
+      required:true,
+      type:'text'
+    },
+
+    {
+      id:'phone',
+      label:'phone',
+      value:buyer.phone,
+      required:true,
+      type:'number'
+    },
         {
-          id:'phone',
-          label:'phone',
-          value:buyer.phone,
-          required:true,
-          type:'number'
-        },
-            {
-          id:'email',
-          label:'Email',
-          value:buyer.email,
-          required:true,
-          type:'email'
-        },
-        {
-          id:'remail',
-          label:'Repite Email',
-          value:buyer.remail,
-          required:true,
-          type:'email'
-        }
-    
-      ]
+      id:'email',
+      label:'Email',
+      value:buyer.email,
+      required:true,
+      type:'email'
+    },
+    {
+      id:'remail',
+      label:'Repite Email',
+      value:buyer.remail,
+      required:true,
+      type:'email'
+    }
+
+  ]), [buyer.email, buyer.name, buyer.phone, buyer.remail])
  
-
-
   const handleForm = (id, value) => {
    
     const newBuyer= { ...buyer, [id]: value };
@@ -74,7 +73,7 @@ else{
     const requiredFields = formFields.filter(({ required }) => required);
     const isSomeRequiredFieldEmpty = requiredFields.some(({ value }) => !value);
     setIsDisabledButton(isSomeRequiredFieldEmpty);
-  }, [buyer]);
+  }, [buyer, formFields]);
 
  
 
