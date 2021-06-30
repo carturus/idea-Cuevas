@@ -9,10 +9,7 @@ export const ItemCount =({initial, stock ,onAdd})=>{
             
         }else{
            setCount(count+1)
-            console.log(count)
         }
-
-
         } 
     const remove=()=>{if(count<=stock && count>initial) setCount(count-1)}
     const handleClick =()=>onAdd(count)  

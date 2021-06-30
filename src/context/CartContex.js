@@ -4,7 +4,6 @@ export const CartContext = createContext([])
 
 
 export const CartProvider=({children})=>{
-
     const [cart,setCart]=useState([])
     const [cartQuantity,setCartQuantity]=useState(0)
     const [totalPrice,setTotalPrice]=useState(0)
@@ -14,6 +13,7 @@ export const CartProvider=({children})=>{
         let isDuplicado=cart.findIndex((itemCart)=>itemCart.id===item.id)
         if( isDuplicado>=0)
         {
+            // NUNCA modifiques directamente un estado, hacelo a traves de su setter (setCart)
             cart[isDuplicado].quantity=cart[isDuplicado].quantity+quantity
             setCartQuantity(cartQuantity+quantity)          
         } else{
@@ -50,7 +50,7 @@ export const CartProvider=({children})=>{
         })      
         setTotalPrice(price)    
 
-    }, [cartQuantity] )
+    }, [cart, cartQuantity] )
    
 
     return(
