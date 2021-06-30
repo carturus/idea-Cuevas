@@ -5,7 +5,10 @@ import React, { useState,useEffect} from 'react';
 
 export  const ItemDetail=({id,title,imageId,price,description,stock})=>{
     // Nunca estas cambiando este valor, porque es un estado?
-    const [initial,setInitial]=useState(1);
+    //En las anteriores entregas se habia considerado que inital pudiera cambiar de valor, por las reglas de negocio 
+    //const [initial,setInitial]=useState(1);
+    //Aqui la dejo como una constante ya que nunca se hizo esa logica
+    const initial=1;
     const [itemStock,setItemStock]=useState(stock);
     const [showItemCount,setShowItemCount]=useState(true);
     const [showButtonBuy,setShowButtonBuy]=useState(false);

@@ -14,7 +14,12 @@ export const CartProvider=({children})=>{
         if( isDuplicado>=0)
         {
             // NUNCA modifiques directamente un estado, hacelo a traves de su setter (setCart)
-            cart[isDuplicado].quantity=cart[isDuplicado].quantity+quantity
+            // cart[isDuplicado].quantity=cart[isDuplicado].quantity+quantity
+            //Corregido
+
+           const newCart=[... cart]
+            newCart[isDuplicado].quantity=newCart[isDuplicado].quantity+quantity
+            setCart(newCart)
             setCartQuantity(cartQuantity+quantity)          
         } else{
             setCart([...cart,item])
